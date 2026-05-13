@@ -6,7 +6,7 @@ import worldMap from "./assets/world_map.png"
 
 function App() {
     const [allCountries, setAllCountries] = useState([]);
-    const [countryByName, setCountryByName] = useState("");
+    const [countryByName, setCountryByName] = useState(null);
 
     async function fetchAllCountries() {
         try {
@@ -24,8 +24,9 @@ function App() {
             const result = await axios.get("https://restcountries.com/v3.1/name/netherlands");
             console.log(result.data[1].name.common);
             console.log(result.data[1].capital[0]);
-            console.log(result.data);
-            setCountryByName(result.data);
+            console.log(result.data[1]);
+            console.log(result.data[1]);
+            setCountryByName(result.data[1]);
         } catch (e) {
             console.error(e);
         }
@@ -46,20 +47,30 @@ function App() {
             </header>
 
             <ul className="country-list">
-                {allCountries.map((allCountries) => (
+                {allCountries.map((country) => (
                         <li key={country.name.common} className="country-cards">
                             <div className="card-header">
                                 <img src={country.flags.png} alt={"Vlag van " + country.name.common}/>
-                                <span className={getContinentColor(allCountries.continents[0])}>{country.name.common}</span>
+                                <span className={getContinentColor(country.continents[0])}>{country.name.common}</span>
                             </div>
-                            <p>Has a
-                                population
-                                of {allCountries.population} people</p>
+                            <p>Has a population of {country.population} people</p>
                         </li>
                     )
                 )
                 }
             </ul>
+            <li>
+                {countryByName && (
+                    <>
+                        <div>
+                            <img src={countryByName.flags.png} alt="Vlag"/>
+                            <h2>{countryByName.name.common}</h2>
+                        </div>
+                        <p>{countryByName.name.common} is situated in {countryByName.subregion} and the capital
+                            is {countryByName.capital[0]}</p>
+                    </>
+                )}
+            </li>
         </>
     )
 }
