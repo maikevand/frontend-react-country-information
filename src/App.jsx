@@ -7,6 +7,7 @@ function App() {
 const [countryName, setCountryName] = useState("");
     const [countryPopulation, setCountryPopulation] = useState("");
     const [continents, setContinents] = useState("");
+    const [countryFlag, setCountryFlag] = useState("");
 
     async function fetchData () {
         try {
@@ -18,6 +19,7 @@ const [countryName, setCountryName] = useState("");
             console.log(result.data[0].population)
             setContinents(result.data[0].continents)
             console.log(result.data[0].continents)
+            setCountryFlag(result.data[0].flags.png)
         } catch (e) {
             console.error(e);
         }
@@ -26,7 +28,9 @@ const [countryName, setCountryName] = useState("");
     return (
         <>
             <button onClick={fetchData}>Toont landen info</button>
-            <li><span className={getContinentColor(continents[0])}>{countryName}</span> has a population of {countryPopulation} people</li>
+            <li>
+                <img src={countryFlag} alt={"Vlag van " + countryName} />
+                <span className={getContinentColor(continents[0])}>{countryName}</span> Has a population of {countryPopulation} people</li>
         </>
     )
 }
