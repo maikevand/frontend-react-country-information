@@ -2,10 +2,10 @@ import './App.css';
 import axios from "axios"
 import {useState} from "react";
 import getContinentColor from "./helpers/getContinentColor.js";
+import worldMap from "./assets/world_map.png"
 
 function App() {
     const [countries, setCountries] = useState([]);
-
 
     async function fetchData() {
         try {
@@ -28,22 +28,33 @@ function App() {
 
     return (
         <>
-            <button onClick={fetchData}>Toon landen</button>
+            <header>
+                <img src={worldMap} alt="Wereldkaart"/>
+                <h1>World Regions</h1>
+
+                {countries.length === 0 && (
+                    <button onClick={fetchData}>Toon landen</button>
+                )}
+            </header>
 
             <ul className="country-list">
-            {countries.map((country) => (
-                <li key={country.name.common}>
-                    <img src={country.flags.png} alt={"Vlag van " + country.name.common}/>
-                    <span className={getContinentColor(country.continents[0])}>{country.name.common}</span> Has a population
-                    of {country.population} people
-                </li>
-                )
-            )
-            }
-            </ul>
-                    </>
+                {countries.map((country) => (
+                        <li key={country.name.common} className="country-cards">
+                            <div className="card-header">
+                                <img src={country.flags.png} alt={"Vlag van " + country.name.common}/>
+                            <span className={getContinentColor(country.continents[0])}>{country.name.common}</span>
+                            </div>
+                            <p>Has a
+                            population
+                            of {country.population} people</p>
+                        </li>
                     )
-                    }
+                )
+                }
+            </ul>
+        </>
+    )
+}
 
 
-                    export default App
+export default App

@@ -35,7 +35,7 @@
 }
 
 .yellow {
-    color: yellow;
+    color: gold;
 }
 
 .purple {
@@ -45,6 +45,11 @@
 .grey {
     color: grey;
 }
+
+h1 {
+    font-size: 2.5rem;
+}
+
 /* ------------------------------- 3. Layout --------------------------------------- */
 
 /* --------------- 3.1 Reusables ----------------------- */
@@ -54,13 +59,35 @@
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------------- */
+header {
+    text-align: center;
+    padding-bottom: 1rem;
+}
 
+header img {
+    width: 100%;
+}
 /* --------------- 4.2 Country-list ------------------- */
 .country-list {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: whitesmoke;
+}
+
+.country-cards {
+    flex-basis: calc((100% - 5rem) / 3);
 }
 
 .country-list li img {
     width: 50px;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    gap: 1rem;
 }
 /* ------------------------------- 5. Media Queries -------------------------------- */
