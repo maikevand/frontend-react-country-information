@@ -1,17 +1,23 @@
 import './App.css';
 import axios from "axios"
 import {useState} from "react";
+import getContinentColor from "./helpers/getContinentColor.js";
 
 function App() {
 const [countryName, setCountryName] = useState("");
     const [countryPopulation, setCountryPopulation] = useState("");
+    const [continents, setContinents] = useState("");
+
     async function fetchData () {
         try {
-            const result = await axios.get("https://restcountries.com/v3.1/all?fields=name,flags,population");
+            const result = await axios.get("https://restcountries.com/v3.1/all?fields=name,flags,population,continents");
+            console.log(result.data);
             setCountryName(result.data[0].name.common)
             console.log(result.data[0].name.common)
             setCountryPopulation(result.data[0].population)
             console.log(result.data[0].population)
+            setContinents(result.data[0].continents)
+            console.log(result.data[0].continents)
         } catch (e) {
             console.error(e);
         }
@@ -20,7 +26,7 @@ const [countryName, setCountryName] = useState("");
     return (
         <>
             <button onClick={fetchData}>Toont landen info</button>
-            <li>{countryName} has a population of {countryPopulation} people</li>
+            <li><span className={getContinentColor(continents[0])}>{countryName}</span> has a population of {countryPopulation} people</li>
         </>
     )
 }
