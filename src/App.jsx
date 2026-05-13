@@ -3,6 +3,7 @@ import axios from "axios"
 import {useState} from "react";
 import getContinentColor from "./helpers/getContinentColor.js";
 import worldMap from "./assets/world_map.png"
+import roundingNumbers from "./helpers/roundingNumbers.js";
 
 function App() {
     const [allCountries, setAllCountries] = useState([]);
@@ -26,6 +27,7 @@ function App() {
             console.log(result.data[1].capital[0]);
             console.log(result.data[1]);
             console.log(result.data[1]);
+            console.log(roundingNumbers(result.data[1].population));
             setCountryByName(result.data[1]);
         } catch (e) {
             console.error(e);
@@ -68,6 +70,7 @@ function App() {
                         </div>
                         <p>{countryByName.name.common} is situated in {countryByName.subregion} and the capital
                             is {countryByName.capital[0]}</p>
+                        <p>It has a population of {roundingNumbers(countryByName.population)} million people and it borders with {countryByName.borders.length} neighboring countries</p>
                     </>
                 )}
             </li>
