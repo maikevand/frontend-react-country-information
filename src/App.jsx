@@ -1,12 +1,14 @@
 import './App.css';
 import axios from "axios"
+import {useState} from "react";
 
 function App() {
-
+const [country, setCountry] = useState(" ");
     async function fetchData () {
         try {
             const result = await axios.get("https://restcountries.com/v3.1/all?fields=name,flags,population");
-            console.log(result);
+            setCountry(result.data[0].name.common)
+            console.log(result.data[0].name.common)
         } catch (e) {
             console.error(e);
         }
@@ -15,7 +17,7 @@ function App() {
     return (
         <>
             <button onClick={fetchData}>Toont landen info</button>
-            <p>hier komt het resultaat</p>
+            <li>{country}</li>
         </>
     )
 }
