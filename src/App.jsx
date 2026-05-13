@@ -4,22 +4,21 @@ import {useState} from "react";
 import getContinentColor from "./helpers/getContinentColor.js";
 
 function App() {
-const [countryName, setCountryName] = useState("");
-    const [countryPopulation, setCountryPopulation] = useState("");
-    const [continents, setContinents] = useState("");
-    const [countryFlag, setCountryFlag] = useState("");
+    const [countries, setCountries] = useState([]);
 
-    async function fetchData () {
+
+    async function fetchData() {
         try {
             const result = await axios.get("https://restcountries.com/v3.1/all?fields=name,flags,population,continents");
-            console.log(result.data);
-            setCountryName(result.data[0].name.common)
-            console.log(result.data[0].name.common)
-            setCountryPopulation(result.data[0].population)
-            console.log(result.data[0].population)
-            setContinents(result.data[0].continents)
-            console.log(result.data[0].continents)
-            setCountryFlag(result.data[0].flags.png)
+            setCountries(result.data);
+            // console.log(result.data);
+            // setCountryName(result.data[0].name.common)
+            // console.log(result.data[0].name.common)
+            // setCountryPopulation(result.data[0].population)
+            // console.log(result.data[0].population)
+            // setContinents(result.data[0].continents)
+            // console.log(result.data[0].continents)
+            // setCountryFlag(result.data[0].flags.png)
         } catch (e) {
             console.error(e);
         }
@@ -27,12 +26,22 @@ const [countryName, setCountryName] = useState("");
 
     return (
         <>
-            <button onClick={fetchData}>Toont landen info</button>
-            <li>
-                <img src={countryFlag} alt={"Vlag van " + countryName} />
-                <span className={getContinentColor(continents[0])}>{countryName}</span> Has a population of {countryPopulation} people</li>
-        </>
-    )
-}
+            <button onClick={fetchData}>Toon landen</button>
 
-export default App
+            <ul className="country-list">
+            {countries.map((country) => (
+                <li key={country.name.common}>
+                    <img src={country.flags.png} alt={"Vlag van " + country.name.common}/>
+                    <span className={getContinentColor(country.continents[0])}>{country.name.common}</span> Has a population
+                    of {country.population} people
+                </li>
+                )
+            )
+            }
+            </ul>
+                    </>
+                    )
+                    }
+
+
+                    export default App
