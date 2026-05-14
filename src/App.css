@@ -7,8 +7,8 @@
         3.2 Other
     4. Areas
         4.1 Header
-        4.2 Introduction
-        etc.
+        4.2 Country-list
+        4.3 Search by country
     5. Media Queries
 ////////////////////////*/
 
@@ -90,4 +90,20 @@ header img {
     font-size: 1.5rem;
     gap: 1rem;
 }
+
+/* --------------- 4.3 Search by country ------------------- */
+.search-country {
+    text-align: center;
+}
+
+.search-country-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-country-content img {
+    width: 50%;
+}
+
 /* ------------------------------- 5. Media Queries -------------------------------- */
