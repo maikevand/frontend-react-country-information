@@ -1,7 +1,7 @@
 import './App.css';
 import axios from "axios"
 import {useState} from "react";
-import getContinentColor from "./helpers/getContinentColor.js";
+import getRegionColor from "./helpers/getRegionColor.js";
 import worldMap from "./assets/world_map.png"
 import roundingNumbers from "./helpers/roundingNumbers.js";
 import spinningGlobe from "./assets/spinning-globe.gif"
@@ -14,7 +14,7 @@ function App() {
 
     async function fetchAllCountries() {
         try {
-            const result = await axios.get("https://restcountries.com/v3.1/all?fields=name,flags,population,continents");
+            const result = await axios.get("https://restcountries.com/v3.1/all?fields=name,flags,population,region,tld");
             console.log(result.data[0].capital);
             result.data.sort((a, b) => a.population - b.population)
             setAllCountries(result.data);
@@ -65,7 +65,7 @@ function App() {
                                     <div className="card-header">
                                         <img src={country.flags.png} alt={"Vlag van " + country.name.common}/>
                                         <span
-                                            className={getContinentColor(country.continents[0])}>{country.name.common}</span>
+                                            className={getRegionColor(country.region)}>{country.name.common}</span>
                                     </div>
                                     <p>Has a population of {country.population} people</p>
                                 </li>
@@ -101,6 +101,7 @@ function App() {
                                 <p>It has a population of {roundingNumbers(countryByName.population)} million people and
                                     it
                                     borders with {countryByName.borders.length} neighboring countries</p>
+                                <p>Websites can be found on {countryByName.tld} domain's</p>
                             </>
                         )}
                         {error && (
