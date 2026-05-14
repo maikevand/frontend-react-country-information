@@ -10,6 +10,7 @@ function App() {
     const [allCountries, setAllCountries] = useState([]);
     const [countryByName, setCountryByName] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
+    const [error, setError] = useState("");
 
     async function fetchAllCountries() {
         try {
@@ -31,7 +32,11 @@ function App() {
             console.log(result.data[0]);
             console.log(roundingNumbers(result.data[0].population));
             setCountryByName(result.data[0]);
+            setSearchQuery("");
+            setError("");
         } catch (e) {
+            setError(`${searchQuery} bestaat niet. Probeer het opnieuw.`);
+            setCountryByName("");
             console.error(e);
         }
     }
@@ -97,6 +102,9 @@ function App() {
                                     it
                                     borders with {countryByName.borders.length} neighboring countries</p>
                             </>
+                        )}
+                        {error && (
+                                <p>{error}</p>
                         )}
                     </article>
                 </section>
