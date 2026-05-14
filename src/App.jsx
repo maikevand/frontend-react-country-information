@@ -86,10 +86,10 @@ function App() {
                                 value={searchQuery}
                                 onChange={(event) => setSearchQuery(event.target.value)}
                             />
-                            <button type="submit">Zoek</button>
+                            <button type="submit">ZOEK</button>
                         </form>
                     </div>
-                    <article>
+                    <article className="search-country-card">
                         {countryByName && (
                             <>
                                 <div>

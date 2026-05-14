@@ -106,8 +106,47 @@ header img {
     width: 50%;
 }
 
-.search-country-info {
+.search-button {
+    margin-bottom: 4rem;
+}
 
+.search-button input {
+    border-color: dodgerblue;
+    padding: 0.7rem;
+    width: 20rem;
+    border-radius: 0.75rem 0 0 0.75rem;
+}
+
+.search-button button {
+    padding: 0.7rem;
+    background-color: limegreen;
+    border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.search-country-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 40rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 0.25rem 1rem hsla(0, 0%, 0%, 0.12);
+    border-radius: 0.5rem;
+}
+
+.search-country-card img {
+    max-width: 15%;
+}
+
+.search-country-card div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.7rem;
+    border-bottom: 1px solid lightgrey;
 }
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
