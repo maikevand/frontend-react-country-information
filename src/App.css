@@ -67,7 +67,15 @@ header {
 header img {
     width: 100%;
 }
+
 /* --------------- 4.2 Country-list ------------------- */
+.all-countries-button {
+    padding: 0.7rem;
+    background-color: limegreen;
+    border: 2px solid darkgreen;
+    border-radius: 0.75rem;
+}
+
 .country-list {
     list-style: none;
     display: flex;
@@ -87,6 +95,7 @@ header img {
 .card-header {
     display: flex;
     flex-direction: row;
+    align-items: center;
     font-size: 1.5rem;
     gap: 1rem;
 }
@@ -107,11 +116,11 @@ header img {
 }
 
 .search-button {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 .search-button input {
-    border-color: dodgerblue;
+    border: 2px solid cornflowerblue;
     padding: 0.7rem;
     width: 20rem;
     border-radius: 0.75rem 0 0 0.75rem;
@@ -120,6 +129,7 @@ header img {
 .search-button button {
     padding: 0.7rem;
     background-color: limegreen;
+    border: 2px solid darkgreen;
     border-radius: 0 0.75rem 0.75rem 0;
 }
 
