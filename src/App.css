@@ -1,0 +1,162 @@
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Country-list
+        4.3 Search by country
+    5. Media Queries
+////////////////////////*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+/*CSS Reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: gold;
+}
+
+.purple {
+    color: purple;
+}
+
+.grey {
+    color: grey;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Reusables ----------------------- */
+
+/* --------------- 3.2 Other --------------------------- */
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Header ------------------------- */
+header {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+header img {
+    width: 100%;
+}
+
+/* --------------- 4.2 Country-list ------------------- */
+.all-countries-button {
+    padding: 0.7rem;
+    background-color: limegreen;
+    border: 2px solid darkgreen;
+    border-radius: 0.75rem;
+}
+
+.country-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: whitesmoke;
+}
+
+.country-cards {
+    flex-basis: calc((100% - 5rem) / 3);
+}
+
+.country-list li img {
+    width: 50px;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+/* --------------- 4.3 Search by country ------------------- */
+.search-country {
+    text-align: center;
+}
+
+.search-country-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-country-content img {
+    width: 50%;
+}
+
+.search-button {
+    margin-bottom: 1rem;
+}
+
+.search-button input {
+    border: 2px solid cornflowerblue;
+    padding: 0.7rem;
+    width: 20rem;
+    border-radius: 0.75rem 0 0 0.75rem;
+}
+
+.search-button button {
+    padding: 0.7rem;
+    background-color: limegreen;
+    border: 2px solid darkgreen;
+    border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.search-country-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 40rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 0.25rem 1rem hsla(0, 0%, 0%, 0.12);
+    border-radius: 0.5rem;
+}
+
+.search-country-card img {
+    max-width: 15%;
+}
+
+.search-country-card div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.7rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+/* ------------------------------- 5. Media Queries -------------------------------- */
